@@ -57,7 +57,7 @@ table(IIF2023$P11_1_Rp01)
 
 Para iniciar el procesamiento de datos cuantitativos requerimos determinar qué tipos de variables tenemos que procesar de acuerdo a nuestra pregunta de investigación. Podemos usar el comando str o class para ello.
 
-Es cierto que el significado estadístico y/o sociológico de algunas variables nos puede llevar a clasificarlas como categóricas o numéricas. Sin embargo, es necesario no solo identificar ello sino también cómo han sido almacenadas en la base de datos inicial (como vectores o como factores). Esto luego nos permitirá elaborar un plan de cómo gestionarlas posteriormente y cumplir con los objetivos de investigación eficazmente. Por ejemplo, en el plan podemos incluir qué variables necesitarán ser recodificadas y cómo, qué valores perdidos y atípicos se excluirán y cuáles no, así como cómo todo esto influirá en la interpretación de tablas, grádicos y cálculos de estadísticos.  
+Esto posteriormente nos permitirá elaborar un plan de cómo gestionarlas posteriormente y cumplir con los objetivos de investigación eficazmente. Por ejemplo, en el plan podemos incluir qué variables necesitarán ser recodificadas y cómo, qué valores perdidos y atípicos se excluirán y cuáles no, así como cómo todo esto influirá en la interpretación de tablas, grádicos y cálculos de estadísticos.  
 
 ```{r}
  
