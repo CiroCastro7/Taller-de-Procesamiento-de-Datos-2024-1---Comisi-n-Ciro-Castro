@@ -1,0 +1,1076 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Ficha práctica 8},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Ficha práctica 8}
+\author{}
+\date{\vspace{-2.5em}2024-05-23}
+
+\begin{document}
+\maketitle
+
+\hypertarget{r-markdown}{%
+\subsection{R Markdown}\label{r-markdown}}
+
+This is an R Markdown document. Markdown is a simple formatting syntax
+for authoring HTML, PDF, and MS Word documents. For more details on
+using R Markdown see \url{http://rmarkdown.rstudio.com}.
+
+When you click the \textbf{Knit} button a document will be generated
+that includes both content as well as the output of any embedded R code
+chunks within the document. You can embed an R code chunk like this:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{summary}\NormalTok{(cars)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      speed           dist       
+##  Min.   : 4.0   Min.   :  2.00  
+##  1st Qu.:12.0   1st Qu.: 26.00  
+##  Median :15.0   Median : 36.00  
+##  Mean   :15.4   Mean   : 42.98  
+##  3rd Qu.:19.0   3rd Qu.: 56.00  
+##  Max.   :25.0   Max.   :120.00
+\end{verbatim}
+
+\hypertarget{including-plots}{%
+\subsection{Including Plots}\label{including-plots}}
+
+You can also embed plots, for example:
+
+\includegraphics{Ensayo-2_files/figure-latex/pressure-1.pdf}
+
+Note that the \texttt{echo\ =\ FALSE} parameter was added to the code
+chunk to prevent printing of the R code that generated the plot.
+
+IMPORTAR SPSS a R
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(foreign) }
+\NormalTok{IIF2023 }\OtherTok{\textless{}{-}} \FunctionTok{read.spss}\NormalTok{(}\StringTok{"IIF 2023.sav"}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning in read.spss("IIF 2023.sav"): IIF 2023.sav: Very long string record(s)
+## found (record type 7, subtype 14), each will be imported in consecutive
+## separate variables
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in read.spss("IIF 2023.sav"): Duplicated levels in factor DISTRITOX:
+## INDEPENDENCIA
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{IIF2023 }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(IIF2023)}
+\end{Highlighting}
+\end{Shaded}
+
+EXPLORAR BASE DE DATOS
+
+Para identificar los tipos de variables usar el comando ``str''.
+
+Tanto para variables categóricas (factores) como numéricas (vectores)
+podemos usar ``summary'' para tener mejor visión de los datos (número de
+observasiones y estadísticos descriptivos respectivamente)
+
+Identifiquemos variables atípicas usando el comando ``table'' y
+reflexionando sobre cómo la pregunta
+
+Identifiquemos si las variables involucradas en sus preguntas son
+numéricas o categóricas. Así, luego podremos elaborar un plan acerca de
+cómo las transformaremos para obtener respuestas a las preguntas
+planteadas. El plan debe incluir qué variables necesitamos recodificar y
+la exclusión de valores perdidos o atípicos.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{View}\NormalTok{(IIF2023)}
+\FunctionTok{names}\NormalTok{(IIF2023) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   [1] "Respondent_Serial"          "PAIS"                      
+##   [3] "PA"                         "C00"                       
+##   [5] "C01"                        "C02"                       
+##   [7] "P0601"                      "P0602"                     
+##   [9] "P0603"                      "P0604"                     
+##  [11] "P0605"                      "P0606"                     
+##  [13] "P0607"                      "P0608"                     
+##  [15] "P0609"                      "P0610"                     
+##  [17] "P0611"                      "P0612"                     
+##  [19] "P0613"                      "P0614"                     
+##  [21] "P0615"                      "P0616"                     
+##  [23] "P0617"                      "P0701"                     
+##  [25] "P0702"                      "P0703"                     
+##  [27] "P0704"                      "P0705"                     
+##  [29] "P0706"                      "P0707"                     
+##  [31] "P0708"                      "P0709"                     
+##  [33] "P0710"                      "P081"                      
+##  [35] "P082"                       "P083"                      
+##  [37] "P084"                       "P085"                      
+##  [39] "P086"                       "P087"                      
+##  [41] "P088"                       "P09_1_Rp01"                
+##  [43] "P09_1_Rp02"                 "P09_1_Rp03"                
+##  [45] "P09_1_Rp04"                 "P09_1_Rp05"                
+##  [47] "P09_1_Rp06"                 "P09_1_Rp07"                
+##  [49] "P09_1_Rp08"                 "P09_1_Rp09"                
+##  [51] "P09_1_Rp10"                 "P09_1_Rp11"                
+##  [53] "P09_2_Rp01"                 "P09_2_Rp02"                
+##  [55] "P09_2_Rp03"                 "P09_2_Rp04"                
+##  [57] "P09_2_Rp05"                 "P09_2_Rp06"                
+##  [59] "P09_2_Rp07"                 "P09_2_Rp08"                
+##  [61] "P09_2_Rp09"                 "P09_2_Rp10"                
+##  [63] "P09_2_Rp11"                 "P09_3_Rp01"                
+##  [65] "P09_3_Rp02"                 "P09_3_Rp03"                
+##  [67] "P09_3_Rp04"                 "P09_3_Rp05"                
+##  [69] "P09_3_Rp06"                 "P09_3_Rp07"                
+##  [71] "P09_3_Rp08"                 "P09_3_Rp09"                
+##  [73] "P09_3_Rp10"                 "P09_3_Rp11"                
+##  [75] "P09_4_Rp01"                 "P09_4_Rp02"                
+##  [77] "P09_4_Rp03"                 "P09_4_Rp04"                
+##  [79] "P09_4_Rp05"                 "P09_4_Rp06"                
+##  [81] "P09_4_Rp07"                 "P09_4_Rp08"                
+##  [83] "P09_4_Rp09"                 "P09_4_Rp10"                
+##  [85] "P09_4_Rp11"                 "P09_5_Rp01"                
+##  [87] "P09_5_Rp02"                 "P09_5_Rp03"                
+##  [89] "P09_5_Rp04"                 "P09_5_Rp05"                
+##  [91] "P09_5_Rp06"                 "P09_5_Rp07"                
+##  [93] "P09_5_Rp08"                 "P09_5_Rp09"                
+##  [95] "P09_5_Rp10"                 "P09_5_Rp11"                
+##  [97] "P09_6_Rp01"                 "P09_6_Rp02"                
+##  [99] "P09_6_Rp03"                 "P09_6_Rp04"                
+## [101] "P09_6_Rp05"                 "P09_6_Rp06"                
+## [103] "P09_6_Rp07"                 "P09_6_Rp08"                
+## [105] "P09_6_Rp09"                 "P09_6_Rp10"                
+## [107] "P09_6_Rp11"                 "P09_7_Rp01"                
+## [109] "P09_7_Rp02"                 "P09_7_Rp03"                
+## [111] "P09_7_Rp04"                 "P09_7_Rp05"                
+## [113] "P09_7_Rp06"                 "P09_7_Rp07"                
+## [115] "P09_7_Rp08"                 "P09_7_Rp09"                
+## [117] "P09_7_Rp10"                 "P09_7_Rp11"                
+## [119] "P09_8_Rp01"                 "P09_8_Rp02"                
+## [121] "P09_8_Rp03"                 "P09_8_Rp04"                
+## [123] "P09_8_Rp05"                 "P09_8_Rp06"                
+## [125] "P09_8_Rp07"                 "P09_8_Rp08"                
+## [127] "P09_8_Rp09"                 "P09_8_Rp10"                
+## [129] "P09_8_Rp11"                 "P09_9_Rp01"                
+## [131] "P09_9_Rp02"                 "P09_9_Rp03"                
+## [133] "P09_9_Rp04"                 "P09_9_Rp05"                
+## [135] "P09_9_Rp06"                 "P09_9_Rp07"                
+## [137] "P09_9_Rp08"                 "P09_9_Rp09"                
+## [139] "P09_9_Rp10"                 "P09_9_Rp11"                
+## [141] "P09_10_Rp01"                "P09_10_Rp02"               
+## [143] "P09_10_Rp03"                "P09_10_Rp04"               
+## [145] "P09_10_Rp05"                "P09_10_Rp06"               
+## [147] "P09_10_Rp07"                "P09_10_Rp08"               
+## [149] "P09_10_Rp09"                "P09_10_Rp10"               
+## [151] "P09_10_Rp11"                "P09_11_Rp01"               
+## [153] "P09_11_Rp02"                "P09_11_Rp03"               
+## [155] "P09_11_Rp04"                "P09_11_Rp05"               
+## [157] "P09_11_Rp06"                "P09_11_Rp07"               
+## [159] "P09_11_Rp08"                "P09_11_Rp09"               
+## [161] "P09_11_Rp10"                "P09_11_Rp11"               
+## [163] "P1001"                      "P1002"                     
+## [165] "P1003"                      "P1004"                     
+## [167] "P1005"                      "P1006"                     
+## [169] "P1007"                      "P1008"                     
+## [171] "P1009"                      "P11_1_Rp01"                
+## [173] "P11_1_Rp02"                 "P11_1_Rp03"                
+## [175] "P11_1_Rp04"                 "P11_1_Rp05"                
+## [177] "P11_1_Rp06"                 "P11_1_Rp07"                
+## [179] "P11_1_Rp08"                 "P11_1_Rp09"                
+## [181] "P11_1_Rp11"                 "P11_3_Rp01"                
+## [183] "P11_3_Rp02"                 "P11_3_Rp03"                
+## [185] "P11_3_Rp04"                 "P11_3_Rp05"                
+## [187] "P11_3_Rp06"                 "P11_3_Rp07"                
+## [189] "P11_3_Rp08"                 "P11_3_Rp09"                
+## [191] "P11_3_Rp10"                 "P11_3_Rp11"                
+## [193] "P11_4_Rp01"                 "P11_4_Rp02"                
+## [195] "P11_4_Rp03"                 "P11_4_Rp04"                
+## [197] "P11_4_Rp05"                 "P11_4_Rp06"                
+## [199] "P11_4_Rp07"                 "P11_4_Rp08"                
+## [201] "P11_4_Rp09"                 "P11_4_Rp10"                
+## [203] "P11_4_Rp11"                 "P11_5_Rp01"                
+## [205] "P11_5_Rp02"                 "P11_5_Rp03"                
+## [207] "P11_5_Rp04"                 "P11_5_Rp05"                
+## [209] "P11_5_Rp06"                 "P11_5_Rp07"                
+## [211] "P11_5_Rp08"                 "P11_5_Rp09"                
+## [213] "P11_5_Rp10"                 "P11_5_Rp11"                
+## [215] "P11_6_Rp01"                 "P11_6_Rp02"                
+## [217] "P11_6_Rp03"                 "P11_6_Rp04"                
+## [219] "P11_6_Rp05"                 "P11_6_Rp06"                
+## [221] "P11_6_Rp07"                 "P11_6_Rp08"                
+## [223] "P11_6_Rp09"                 "P11_6_Rp10"                
+## [225] "P11_6_Rp11"                 "P02_1_Rp01"                
+## [227] "P02_1_Rp02"                 "P02_1_Rp03"                
+## [229] "P02_1_Rp04"                 "P02_1_Rp05"                
+## [231] "P02_1_Rp06"                 "P02_1_Rp07"                
+## [233] "P02_1_Rp08"                 "P02_1_Rp09"                
+## [235] "P02_1_Rp10"                 "P02_1_Rp11"                
+## [237] "P02_2_Rp01"                 "P02_2_Rp02"                
+## [239] "P02_2_Rp03"                 "P02_2_Rp04"                
+## [241] "P02_2_Rp05"                 "P02_2_Rp06"                
+## [243] "P02_2_Rp07"                 "P02_2_Rp08"                
+## [245] "P02_2_Rp09"                 "P02_2_Rp10"                
+## [247] "P02_2_Rp11"                 "P02_3_Rp01"                
+## [249] "P02_3_Rp02"                 "P02_3_Rp03"                
+## [251] "P02_3_Rp04"                 "P02_3_Rp05"                
+## [253] "P02_3_Rp06"                 "P02_3_Rp07"                
+## [255] "P02_3_Rp08"                 "P02_3_Rp09"                
+## [257] "P02_3_Rp10"                 "P02_3_Rp11"                
+## [259] "P02_4_Rp01"                 "P02_4_Rp02"                
+## [261] "P02_4_Rp03"                 "P02_4_Rp04"                
+## [263] "P02_4_Rp05"                 "P02_4_Rp06"                
+## [265] "P02_4_Rp07"                 "P02_4_Rp08"                
+## [267] "P02_4_Rp09"                 "P02_4_Rp10"                
+## [269] "P02_4_Rp11"                 "P02_5_Rp01"                
+## [271] "P02_5_Rp02"                 "P02_5_Rp03"                
+## [273] "P02_5_Rp04"                 "P02_5_Rp05"                
+## [275] "P02_5_Rp06"                 "P02_5_Rp07"                
+## [277] "P02_5_Rp08"                 "P02_5_Rp09"                
+## [279] "P02_5_Rp10"                 "P02_5_Rp11"                
+## [281] "P02_6_Rp01"                 "P02_6_Rp02"                
+## [283] "P02_6_Rp03"                 "P02_6_Rp04"                
+## [285] "P02_6_Rp05"                 "P02_6_Rp06"                
+## [287] "P02_6_Rp07"                 "P02_6_Rp08"                
+## [289] "P02_6_Rp09"                 "P02_6_Rp10"                
+## [291] "P02_6_Rp11"                 "P02_7_Rp01"                
+## [293] "P02_7_Rp02"                 "P02_7_Rp03"                
+## [295] "P02_7_Rp04"                 "P02_7_Rp05"                
+## [297] "P02_7_Rp06"                 "P02_7_Rp07"                
+## [299] "P02_7_Rp08"                 "P02_7_Rp09"                
+## [301] "P02_7_Rp10"                 "P02_7_Rp11"                
+## [303] "P02_8_Rp01"                 "P02_8_Rp02"                
+## [305] "P02_8_Rp03"                 "P02_8_Rp04"                
+## [307] "P02_8_Rp05"                 "P02_8_Rp06"                
+## [309] "P02_8_Rp07"                 "P02_8_Rp08"                
+## [311] "P02_8_Rp09"                 "P02_8_Rp10"                
+## [313] "P02_8_Rp11"                 "P03_1_Rp"                  
+## [315] "P03_2_Rp"                   "P03_3_Rp"                  
+## [317] "P03_4_Rp"                   "P03_5_Rp"                  
+## [319] "P03A"                       "P041"                      
+## [321] "P042"                       "P043"                      
+## [323] "P044"                       "P05_1_Rp01"                
+## [325] "P05_1_Rp02"                 "P05_1_Rp03"                
+## [327] "P05_1_Rp04"                 "P05_1_Rp05"                
+## [329] "P05_1_Rp06"                 "P05_1_Rp07"                
+## [331] "P05_1_Rp08"                 "P05_1_Rp09"                
+## [333] "P05_1_Rp10"                 "P05_1_Rp11"                
+## [335] "P05_2_Rp01"                 "P05_2_Rp02"                
+## [337] "P05_2_Rp03"                 "P05_2_Rp04"                
+## [339] "P05_2_Rp05"                 "P05_2_Rp06"                
+## [341] "P05_2_Rp07"                 "P05_2_Rp08"                
+## [343] "P05_2_Rp09"                 "P05_2_Rp10"                
+## [345] "P05_2_Rp11"                 "P05_3_Rp01"                
+## [347] "P05_3_Rp02"                 "P05_3_Rp03"                
+## [349] "P05_3_Rp04"                 "P05_3_Rp05"                
+## [351] "P05_3_Rp06"                 "P05_3_Rp07"                
+## [353] "P05_3_Rp08"                 "P05_3_Rp09"                
+## [355] "P05_3_Rp10"                 "P05_3_Rp11"                
+## [357] "P12_101"                    "P12_102"                   
+## [359] "P12_103"                    "P12_104"                   
+## [361] "P12_105"                    "P12_106"                   
+## [363] "P12_107"                    "P12_108"                   
+## [365] "P12_109"                    "P12_110"                   
+## [367] "P12_111"                    "P12_112"                   
+## [369] "P12_113"                    "P12_114"                   
+## [371] "P12_115"                    "P12_201"                   
+## [373] "P12_202"                    "P12_203"                   
+## [375] "P12_204"                    "P12_205"                   
+## [377] "P12_206"                    "P12_207"                   
+## [379] "P12_208"                    "P12_209"                   
+## [381] "P12_210"                    "P12_211"                   
+## [383] "P12_212"                    "P12_213"                   
+## [385] "P12_214"                    "P15"                       
+## [387] "P161"                       "P162"                      
+## [389] "P163"                       "P164"                      
+## [391] "P165"                       "P166"                      
+## [393] "P167"                       "P168"                      
+## [395] "P17"                        "P1801"                     
+## [397] "P1802"                      "P1803"                     
+## [399] "P1804"                      "P1805"                     
+## [401] "P1806"                      "P1807"                     
+## [403] "P1808"                      "P1809"                     
+## [405] "P1810"                      "P1811"                     
+## [407] "P1812"                      "P1813"                     
+## [409] "P19_1_Rp1"                  "P19_1_Rp2"                 
+## [411] "P19_1_Rp3"                  "P19_2_Rp1"                 
+## [413] "P19_2_Rp2"                  "P19_2_Rp3"                 
+## [415] "P19_3_Rp1"                  "P19_3_Rp2"                 
+## [417] "P19_3_Rp3"                  "P19_4_Rp1"                 
+## [419] "P19_4_Rp2"                  "P19_4_Rp3"                 
+## [421] "P19_5_Rp1"                  "P19_5_Rp2"                 
+## [423] "P19_5_Rp3"                  "P19_6_Rp1"                 
+## [425] "P19_6_Rp2"                  "P19_6_Rp3"                 
+## [427] "P19_7_Rp1"                  "P19_7_Rp2"                 
+## [429] "P19_7_Rp3"                  "P19_8_Rp1"                 
+## [431] "P19_8_Rp2"                  "P19_8_Rp3"                 
+## [433] "P19_9_Rp1"                  "P19_9_Rp2"                 
+## [435] "P19_9_Rp3"                  "P20"                       
+## [437] "P2101"                      "P2102"                     
+## [439] "P2103"                      "P2104"                     
+## [441] "P2105"                      "P2106"                     
+## [443] "P2107"                      "P2108"                     
+## [445] "P2109"                      "P2110"                     
+## [447] "P22"                        "P23_1_Rp"                  
+## [449] "P23_2_Rp"                   "P23_3_Rp"                  
+## [451] "P23_4_Rp"                   "P23_5_Rp"                  
+## [453] "P23_6_Rp"                   "P23_7_Rp"                  
+## [455] "P24_1_Rp"                   "P24_2_Rp"                  
+## [457] "P24_3_Rp"                   "P24_4_Rp"                  
+## [459] "P24_5_Rp"                   "P25_1_Rp"                  
+## [461] "P25_2_Rp"                   "P25_3_Rp"                  
+## [463] "P25_4_Rp"                   "P25_5_Rp"                  
+## [465] "P25_6_Rp"                   "P26_1_Rp"                  
+## [467] "P26_2_Rp"                   "P26_3_Rp"                  
+## [469] "P26_4_Rp"                   "P26_5_Rp"                  
+## [471] "P27_1_Rp"                   "P27_2_Rp"                  
+## [473] "P27_3_Rp"                   "P27_4_Rp"                  
+## [475] "P27_5_Rp"                   "P28_1_Rp"                  
+## [477] "P28_2_Rp"                   "P28_3_Rp"                  
+## [479] "P28_4_Rp"                   "P28_5_Rp"                  
+## [481] "P28_6_Rp"                   "P29_1_Rp"                  
+## [483] "P29_2_Rp"                   "P30_1_Rp"                  
+## [485] "P30_2_Rp"                   "P30_3_Rp"                  
+## [487] "C03"                        "C03A"                      
+## [489] "C32"                        "C04"                       
+## [491] "C05"                        "C081"                      
+## [493] "C082"                       "C083"                      
+## [495] "C084"                       "C09_PER_BOL_ECU"           
+## [497] "C09_CHILE"                  "C09_ARGENTINA"             
+## [499] "C09_COLOMBIA"               "C09_PANAMA"                
+## [501] "P01N"                       "P02N"                      
+## [503] "REGION_COL"                 "MUNICIPIO_COL"             
+## [505] "TAMANIO_COL"                "N1"                        
+## [507] "N2_1_Rp"                    "N3_1_Rp"                   
+## [509] "N3_2_Rp"                    "N3_3_Rp"                   
+## [511] "N3_4_Rp"                    "N4_1_Rp"                   
+## [513] "N4_2_Rp"                    "N5_1_Rp"                   
+## [515] "N5_2_Rp"                    "N6"                        
+## [517] "N7"                         "N8"                        
+## [519] "PTJE3"                      "NSEX"                      
+## [521] "NIVEL3"                     "REGION_PERU"               
+## [523] "NP01"                       "NP02"                      
+## [525] "APOR_RIM"                   "NP03"                      
+## [527] "NIV_EDU"                    "NP04"                      
+## [529] "NP05A"                      "NP05B"                     
+## [531] "NP06"                       "NP07"                      
+## [533] "COB_MED"                    "NSE_ARG"                   
+## [535] "RANGO_PANAMA"               "NSE_PANAMA"                
+## [537] "RANGO_PANAMA2"              "Q01"                       
+## [539] "Q02A"                       "Q02B"                      
+## [541] "Q02C"                       "Q03C_1_Rp"                 
+## [543] "Q03C_2_Rp"                  "Q03C_3_Rp"                 
+## [545] "Q04C"                       "Q05A"                      
+## [547] "Q06"                        "Q06B"                      
+## [549] "PTJE_ECU"                   "NSE_ECU"                   
+## [551] "FGSE01"                     "FGSE02"                    
+## [553] "NSE_CHI"                    "NBO00"                     
+## [555] "NBO01"                      "NBO02"                     
+## [557] "NBO03_1_Rp"                 "NBO03_2_Rp"                
+## [559] "NBO03_3_Rp"                 "NBO03_4_Rp"                
+## [561] "NBO04_1_Rp"                 "NBO04_2_Rp"                
+## [563] "NBO05"                      "NBO06"                     
+## [565] "NBO07"                      "PTJE_BOL"                  
+## [567] "NSE_BOL"                    "NSE_BOL2"                  
+## [569] "NB08A"                      "NB08B"                     
+## [571] "N9"                         "N10"                       
+## [573] "N11"                        "DISTRITOX"                 
+## [575] "DISTRITOX_C_949494"         "DISTRITO"                  
+## [577] "ZONA"                       "MANZANA"                   
+## [579] "CODENC"                     "ZONA_ARG"                  
+## [581] "INC_1_Rp"                   "INC_2_Rp"                  
+## [583] "INC_3_Rp"                   "INC_4_Rp"                  
+## [585] "INC_5_Rp"                   "INC_6_Rp"                  
+## [587] "TOTAL_INC"                  "CUOTA_GENERO"              
+## [589] "CUOTA_EDAD"                 "CUOTA_EDAD_PILOTO_PERU_ARG"
+## [591] "CUOTA_EDAD_PILOTO"          "CUOTA_URBANIDAD"           
+## [593] "CUOTA_NSE_PER"              "CUOTA_NSE_ECU"             
+## [595] "P03_SUP"                    "P03_S0"                    
+## [597] "P23_SUP"                    "P23_S0"                    
+## [599] "P28_SUP"                    "P28_S0"                    
+## [601] "P30_SUP"                    "OriginalRespondentSerial"  
+## [603] "OriginalFile"               "ENCO"                      
+## [605] "P05_SUP"                    "P05_S0"                    
+## [607] "P05_S1"                     "C08_EC"                    
+## [609] "CANTON_ECU"                 "ZONA_ECU"                  
+## [611] "SECTOR_ECU"                 "URBANIDAD_ECU"             
+## [613] "CANTON_EC"                  "ZONA_EC"                   
+## [615] "SECTOR_EC"                  "REGION_PROV_ECU"           
+## [617] "SbjNum"                     "X.Date"                    
+## [619] "Srvyr"                      "Duration"                  
+## [621] "Complete"                   "Status"                    
+## [623] "COOR"                       "SUP"                       
+## [625] "ENC"                        "ID"                        
+## [627] "FOLIO"                      "CVE_AGEB"                  
+## [629] "CVEEDO"                     "ESTADO"                    
+## [631] "CVEMUNI"                    "MUNICIPIO"                 
+## [633] "CVELOC"                     "LOCALIDAD"                 
+## [635] "IDU_MUN"                    "IDU_LOC"                   
+## [637] "AGEB"                       "TIPO"                      
+## [639] "P_18YMAS"                   "EDMED"                     
+## [641] "Bassols9"                   "Bassols9nom"               
+## [643] "CveEstratoh"                "MZ_1"                      
+## [645] "MZ_2"                       "MZ_3"                      
+## [647] "MZ_4"                       "MZF"                       
+## [649] "Q_25_LA"                    "Q_25_LO"                   
+## [651] "Q_26"                       "INF1"                      
+## [653] "INF2"                       "C0"                        
+## [655] "EDAD_GRUP"                  "P00"                       
+## [657] "P06_O17"                    "P02_4_94"                  
+## [659] "P12_2_O14"                  "P12_2_94"                  
+## [661] "P19_10_O1"                  "P19_10_O2"                 
+## [663] "P19_10_O3"                  "P19_10_OTHER"              
+## [665] "C9"                         "C9_OTHER"                  
+## [667] "AMA1"                       "RA1"                       
+## [669] "A2"                         "RA2"                       
+## [671] "A3"                         "RA3"                       
+## [673] "A4"                         "RA4"                       
+## [675] "A5"                         "RA5"                       
+## [677] "A6"                         "RA6"                       
+## [679] "REST_AMAI"                  "CAMAI"                     
+## [681] "HR_FIN"                     "T_RECH_1"                  
+## [683] "T_RECH_2"                   "T_RECH_3"                  
+## [685] "T_RECH_4"                   "T_RECH_5"                  
+## [687] "T_RECH_6"                   "T_RECH_7"                  
+## [689] "T_RECH_8"                   "T_RECH_9"                  
+## [691] "FactorExpansion"            "WTVAR"                     
+## [693] "TOTAL"                      "ENC_FIN"                   
+## [695] "ID_UNICO"                   "WAVE"                      
+## [697] "EDADES"                     "EDAD_4GRUPOS"              
+## [699] "NSE_COMPARABLES"            "TF1"                       
+## [701] "TF2"                        "TF3"                       
+## [703] "AUTOIDENTIFICACION"         "Macroregion_1"             
+## [705] "Macroregion_2"              "Pond_Peru"                 
+## [707] "REG_CHILE"                  "Pond_Chile"                
+## [709] "REG_ARGENTINA"              "Pond_Argentina"            
+## [711] "REG_ECUADOR"                "Pond_Ecuador"              
+## [713] "Pond_Panama"                "REG_BOLIVIA"               
+## [715] "REG_BOLIVIA2"               "ESTRATO_BOL"               
+## [717] "Pond_Bolivia"               "pond_Colombia"             
+## [719] "WTVAR_TOTAL"                "Internet"                  
+## [721] "D_ACCESO"                   "P04_I1"                    
+## [723] "P06_I3"                     "P07_P08_I5"                
+## [725] "P10_I6"                     "P09_I7"                    
+## [727] "P11_I8"                     "P12_I9"                    
+## [729] "P04_I1_Prom"                "P06_I3_Prom"               
+## [731] "P07_P08_I5_Prom"            "P10_I6_Prom"               
+## [733] "P09_I7_Prom"                "P12_I9_Prom"               
+## [735] "D_USO"                      "P03_I11"                   
+## [737] "P16_I12"                    "P19_I13"                   
+## [739] "P21_I14"                    "P03_I11_Prom"              
+## [741] "D_CALIDAD"                  "P22_I15"                   
+## [743] "P23_I16"                    "P24_P25_I17"               
+## [745] "P26_I18"                    "P27_I19"                   
+## [747] "P28_I20"                    "P29_I21"                   
+## [749] "P30_I22"                    "IndiceGlobal"              
+## [751] "INDICE_GLOBAL_AGR5"         "ACCESO_AGR5"               
+## [753] "USO_AGR5"                   "CALIDAD_AGR5"              
+## [755] "P9_P11Entidad1"             "P9_P11Entidad2"            
+## [757] "P9_P11Entidad3"             "P9_P11Entidad4"            
+## [759] "P9_P11Entidad5"             "P9_P11Entidad6"            
+## [761] "P9_P11Entidad7"             "P9_P11Entidad8"            
+## [763] "P9_P11Entidad9"             "P9_P11Entidad10"           
+## [765] "P9_P11Entidad11"            "P9_P11Entidad12"           
+## [767] "P9_P11Entidad13"            "P9_P11Entidad14"           
+## [769] "P02TipoPago1"               "P02TipoPago2"              
+## [771] "P02TipoPago3"               "P02TipoPago4"              
+## [773] "P02TipoPago5"               "P02TipoPago6"              
+## [775] "P02TipoPago7"               "P02TipoPago8"              
+## [777] "P19_FORMA1"                 "P19_FORMA2"                
+## [779] "P19_FORMA3"                 "P19_FORMA4"                
+## [781] "P19_FORMA5"                 "P19_FORMA6"                
+## [783] "P02Compras1"                "P02Compras2"               
+## [785] "P02Compras3"                "P02Compras4"               
+## [787] "P02Compras5"                "P02Compras6"               
+## [789] "P02Compras7"                "P02Compras8"               
+## [791] "P02Servicios1"              "P02Servicios2"             
+## [793] "P02Servicios3"              "P02Servicios4"             
+## [795] "P02Servicios5"              "P02Servicios6"             
+## [797] "P02Servicios7"              "P02Servicios8"             
+## [799] "filter_."
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{str}\NormalTok{(IIF2023) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 'data.frame':    13443 obs. of  799 variables:
+##  $ Respondent_Serial         : num  1 2 4 5 8 12 13 15 17 21 ...
+##  $ PAIS                      : Factor w/ 8 levels "PERÚ","MÉXICO",..: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ PA                        : Factor w/ 25 levels "Lima","Amazonas",..: 1 1 1 10 17 1 12 12 10 3 ...
+##  $ C00                       : Factor w/ 2 levels "Urbano","Rural": 1 1 1 1 1 1 1 1 1 1 ...
+##  $ C01                       : Factor w/ 2 levels "Hombre","Mujer": 1 2 2 1 1 2 1 1 1 1 ...
+##  $ C02                       : num  50 34 26 26 26 63 51 32 47 24 ...
+##  $ P0601                     : Factor w/ 2 levels "No","Yes": 2 2 2 2 2 2 1 2 2 2 ...
+##  $ P0602                     : Factor w/ 2 levels "No","Yes": 2 2 2 2 2 1 2 1 2 1 ...
+##  $ P0603                     : Factor w/ 2 levels "No","Yes": 1 2 2 1 2 1 1 1 2 1 ...
+##  $ P0604                     : Factor w/ 2 levels "No","Yes": 2 2 2 2 2 1 1 1 2 2 ...
+##  $ P0605                     : Factor w/ 2 levels "No","Yes": 2 2 2 2 2 1 1 1 2 2 ...
+##  $ P0606                     : Factor w/ 2 levels "No","Yes": 1 2 2 2 1 1 2 1 2 1 ...
+##  $ P0607                     : Factor w/ 2 levels "No","Yes": 2 2 2 2 1 2 1 1 2 1 ...
+##  $ P0608                     : Factor w/ 2 levels "No","Yes": 2 2 2 2 2 2 2 2 2 1 ...
+##  $ P0609                     : Factor w/ 2 levels "No","Yes": 1 2 1 2 1 1 2 1 1 1 ...
+##  $ P0610                     : Factor w/ 2 levels "No","Yes": 2 2 1 1 2 1 1 1 1 1 ...
+##  $ P0611                     : Factor w/ 2 levels "No","Yes": 2 2 2 1 2 2 2 1 2 2 ...
+##  $ P0612                     : Factor w/ 2 levels "No","Yes": 2 2 2 2 2 2 2 1 2 2 ...
+##  $ P0613                     : Factor w/ 2 levels "No","Yes": 2 2 2 2 2 2 2 1 1 1 ...
+##  $ P0614                     : Factor w/ 2 levels "No","Yes": 2 2 2 2 2 2 2 1 2 2 ...
+##  $ P0615                     : Factor w/ 2 levels "No","Yes": 1 1 1 1 1 1 1 1 1 1 ...
+##  $ P0616                     : Factor w/ 2 levels "No","Yes": 1 1 1 1 1 1 1 1 1 1 ...
+##  $ P0617                     : Factor w/ 2 levels "No","Yes": 1 2 2 2 2 1 1 1 2 1 ...
+##  $ P0701                     : Factor w/ 2 levels "No","Yes": 1 2 2 2 2 1 2 1 1 2 ...
+##  $ P0702                     : Factor w/ 2 levels "No","Yes": 1 1 1 1 1 2 1 1 1 1 ...
+##  $ P0703                     : Factor w/ 2 levels "No","Yes": 1 2 2 2 1 1 2 1 2 1 ...
+##  $ P0704                     : Factor w/ 2 levels "No","Yes": 1 1 1 2 1 1 1 1 1 1 ...
+##  $ P0705                     : Factor w/ 2 levels "No","Yes": 1 1 1 1 1 1 1 1 2 1 ...
+##  $ P0706                     : Factor w/ 2 levels "No","Yes": 2 2 2 2 1 2 2 1 1 1 ...
+##  $ P0707                     : Factor w/ 2 levels "No","Yes": 1 1 1 1 1 1 1 1 1 1 ...
+##  $ P0708                     : Factor w/ 2 levels "No","Yes": 1 1 1 1 1 1 1 2 1 1 ...
+##  $ P0709                     : Factor w/ 2 levels "No","Yes": 1 1 1 1 1 1 1 1 1 1 ...
+##  $ P0710                     : Factor w/ 2 levels "No","Yes": 1 1 1 1 2 1 1 1 1 1 ...
+##  $ P081                      : Factor w/ 2 levels "No","Yes": 1 1 1 1 1 1 1 1 1 1 ...
+##  $ P082                      : Factor w/ 2 levels "No","Yes": 2 2 2 2 2 2 1 2 2 1 ...
+##  $ P083                      : Factor w/ 2 levels "No","Yes": 2 1 2 1 1 2 1 1 1 1 ...
+##  $ P084                      : Factor w/ 2 levels "No","Yes": 1 1 1 2 1 1 1 1 2 1 ...
+##  $ P085                      : Factor w/ 2 levels "No","Yes": 1 1 1 1 1 1 1 1 1 1 ...
+##  $ P086                      : Factor w/ 2 levels "No","Yes": 1 1 1 1 1 1 1 1 1 1 ...
+##  $ P087                      : Factor w/ 2 levels "No","Yes": 1 1 1 1 1 1 2 1 1 2 ...
+##  $ P088                      : Factor w/ 2 levels "No","Yes": 1 1 1 1 1 1 1 1 1 1 ...
+##  $ P09_1_Rp01                : Factor w/ 2 levels "No","Yes": NA 2 2 1 2 NA 2 NA NA 2 ...
+##  $ P09_1_Rp02                : Factor w/ 2 levels "No","Yes": NA 1 1 1 1 NA 1 NA NA 1 ...
+##  $ P09_1_Rp03                : Factor w/ 2 levels "No","Yes": NA 1 1 1 1 NA 1 NA NA 1 ...
+##  $ P09_1_Rp04                : Factor w/ 2 levels "No","Yes": NA 1 1 1 1 NA 1 NA NA 1 ...
+##  $ P09_1_Rp05                : Factor w/ 2 levels "No","Yes": NA 1 1 2 1 NA 1 NA NA 1 ...
+##  $ P09_1_Rp06                : Factor w/ 2 levels "No","Yes": NA 1 1 1 1 NA 1 NA NA 1 ...
+##  $ P09_1_Rp07                : Factor w/ 2 levels "No","Yes": NA 1 1 1 1 NA 1 NA NA 1 ...
+##  $ P09_1_Rp08                : Factor w/ 2 levels "No","Yes": NA 1 1 1 1 NA 1 NA NA 1 ...
+##  $ P09_1_Rp09                : Factor w/ 2 levels "No","Yes": NA 1 1 1 1 NA 1 NA NA 1 ...
+##  $ P09_1_Rp10                : Factor w/ 2 levels "No","Yes": NA 1 1 1 1 NA 1 NA NA 1 ...
+##  $ P09_1_Rp11                : Factor w/ 2 levels "No","Yes": NA 1 1 1 1 NA 1 NA NA 1 ...
+##  $ P09_2_Rp01                : Factor w/ 2 levels "No","Yes": NA NA NA NA NA 2 NA NA NA NA ...
+##  $ P09_2_Rp02                : Factor w/ 2 levels "No","Yes": NA NA NA NA NA 1 NA NA NA NA ...
+##  $ P09_2_Rp03                : Factor w/ 2 levels "No","Yes": NA NA NA NA NA 1 NA NA NA NA ...
+##  $ P09_2_Rp04                : Factor w/ 2 levels "No","Yes": NA NA NA NA NA 1 NA NA NA NA ...
+##  $ P09_2_Rp05                : Factor w/ 2 levels "No","Yes": NA NA NA NA NA 1 NA NA NA NA ...
+##  $ P09_2_Rp06                : Factor w/ 2 levels "No","Yes": NA NA NA NA NA 1 NA NA NA NA ...
+##  $ P09_2_Rp07                : Factor w/ 2 levels "No","Yes": NA NA NA NA NA 1 NA NA NA NA ...
+##  $ P09_2_Rp08                : Factor w/ 2 levels "No","Yes": NA NA NA NA NA 1 NA NA NA NA ...
+##  $ P09_2_Rp09                : Factor w/ 2 levels "No","Yes": NA NA NA NA NA 1 NA NA NA NA ...
+##  $ P09_2_Rp10                : Factor w/ 2 levels "No","Yes": NA NA NA NA NA 1 NA NA NA NA ...
+##  $ P09_2_Rp11                : Factor w/ 2 levels "No","Yes": NA NA NA NA NA 1 NA NA NA NA ...
+##  $ P09_3_Rp01                : Factor w/ 2 levels "No","Yes": NA 2 2 1 NA NA 2 NA 2 NA ...
+##  $ P09_3_Rp02                : Factor w/ 2 levels "No","Yes": NA 1 1 1 NA NA 1 NA 1 NA ...
+##  $ P09_3_Rp03                : Factor w/ 2 levels "No","Yes": NA 1 1 1 NA NA 1 NA 1 NA ...
+##  $ P09_3_Rp04                : Factor w/ 2 levels "No","Yes": NA 1 1 1 NA NA 1 NA 1 NA ...
+##  $ P09_3_Rp05                : Factor w/ 2 levels "No","Yes": NA 1 1 2 NA NA 1 NA 1 NA ...
+##  $ P09_3_Rp06                : Factor w/ 2 levels "No","Yes": NA 1 1 1 NA NA 1 NA 1 NA ...
+##  $ P09_3_Rp07                : Factor w/ 2 levels "No","Yes": NA 1 1 1 NA NA 1 NA 1 NA ...
+##  $ P09_3_Rp08                : Factor w/ 2 levels "No","Yes": NA 1 1 1 NA NA 1 NA 1 NA ...
+##  $ P09_3_Rp09                : Factor w/ 2 levels "No","Yes": NA 1 1 1 NA NA 1 NA 1 NA ...
+##  $ P09_3_Rp10                : Factor w/ 2 levels "No","Yes": NA 1 1 1 NA NA 1 NA 1 NA ...
+##  $ P09_3_Rp11                : Factor w/ 2 levels "No","Yes": NA 1 1 1 NA NA 1 NA 1 NA ...
+##  $ P09_4_Rp01                : Factor w/ 2 levels "No","Yes": NA NA NA 1 NA NA NA NA NA NA ...
+##  $ P09_4_Rp02                : Factor w/ 2 levels "No","Yes": NA NA NA 1 NA NA NA NA NA NA ...
+##  $ P09_4_Rp03                : Factor w/ 2 levels "No","Yes": NA NA NA 1 NA NA NA NA NA NA ...
+##  $ P09_4_Rp04                : Factor w/ 2 levels "No","Yes": NA NA NA 1 NA NA NA NA NA NA ...
+##  $ P09_4_Rp05                : Factor w/ 2 levels "No","Yes": NA NA NA 2 NA NA NA NA NA NA ...
+##  $ P09_4_Rp06                : Factor w/ 2 levels "No","Yes": NA NA NA 1 NA NA NA NA NA NA ...
+##  $ P09_4_Rp07                : Factor w/ 2 levels "No","Yes": NA NA NA 1 NA NA NA NA NA NA ...
+##  $ P09_4_Rp08                : Factor w/ 2 levels "No","Yes": NA NA NA 1 NA NA NA NA NA NA ...
+##  $ P09_4_Rp09                : Factor w/ 2 levels "No","Yes": NA NA NA 1 NA NA NA NA NA NA ...
+##  $ P09_4_Rp10                : Factor w/ 2 levels "No","Yes": NA NA NA 1 NA NA NA NA NA NA ...
+##  $ P09_4_Rp11                : Factor w/ 2 levels "No","Yes": NA NA NA 1 NA NA NA NA NA NA ...
+##  $ P09_5_Rp01                : Factor w/ 2 levels "No","Yes": NA NA NA NA NA NA NA NA 2 NA ...
+##  $ P09_5_Rp02                : Factor w/ 2 levels "No","Yes": NA NA NA NA NA NA NA NA 1 NA ...
+##  $ P09_5_Rp03                : Factor w/ 2 levels "No","Yes": NA NA NA NA NA NA NA NA 1 NA ...
+##  $ P09_5_Rp04                : Factor w/ 2 levels "No","Yes": NA NA NA NA NA NA NA NA 1 NA ...
+##  $ P09_5_Rp05                : Factor w/ 2 levels "No","Yes": NA NA NA NA NA NA NA NA 1 NA ...
+##  $ P09_5_Rp06                : Factor w/ 2 levels "No","Yes": NA NA NA NA NA NA NA NA 1 NA ...
+##  $ P09_5_Rp07                : Factor w/ 2 levels "No","Yes": NA NA NA NA NA NA NA NA 1 NA ...
+##  $ P09_5_Rp08                : Factor w/ 2 levels "No","Yes": NA NA NA NA NA NA NA NA 1 NA ...
+##  $ P09_5_Rp09                : Factor w/ 2 levels "No","Yes": NA NA NA NA NA NA NA NA 1 NA ...
+##  $ P09_5_Rp10                : Factor w/ 2 levels "No","Yes": NA NA NA NA NA NA NA NA 1 NA ...
+##  $ P09_5_Rp11                : Factor w/ 2 levels "No","Yes": NA NA NA NA NA NA NA NA 1 NA ...
+##  $ P09_6_Rp01                : Factor w/ 2 levels "No","Yes": 2 2 2 1 NA 2 2 NA NA NA ...
+##  $ P09_6_Rp02                : Factor w/ 2 levels "No","Yes": 1 1 1 1 NA 1 1 NA NA NA ...
+##  $ P09_6_Rp03                : Factor w/ 2 levels "No","Yes": 1 1 1 2 NA 1 1 NA NA NA ...
+##   [list output truncated]
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{str}\NormalTok{(IIF2023}\SpecialCharTok{$}\NormalTok{P0605)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  Factor w/ 2 levels "No","Yes": 2 2 2 2 2 1 1 1 2 2 ...
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{summary}\NormalTok{(IIF2023}\SpecialCharTok{$}\NormalTok{P23\_I16)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   1.000   3.000   3.000   3.067   3.000   5.000
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{summary}\NormalTok{(IIF2023}\SpecialCharTok{$}\NormalTok{C02)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   18.00   27.00   39.00   39.92   50.00   90.00
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{table}\NormalTok{(IIF2023}\SpecialCharTok{$}\NormalTok{P23\_I16)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##    1    2    3    4    5 
+##  334 1846 8018 3073  172
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{table}\NormalTok{(IIF2023}\SpecialCharTok{$}\NormalTok{C02)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  18  19  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35  36  37 
+## 447 285 329 268 293 316 308 469 469 346 392 278 374 206 315 249 247 330 240 230 
+##  38  39  40  41  42  43  44  45  46  47  48  49  50  51  52  53  54  55  56  57 
+## 247 235 368 214 323 509 269 358 224 247 246 233 300 155 205 241 164 234 202 164 
+##  58  59  60  61  62  63  64  65  66  67  68  69  70  71  72  73  74  75  76  77 
+## 179 137 198 101 122 133 106 142  77  89  99  67 108  33  55  55  32  38  30  22 
+##  78  79  80  81  82  83  84  85  86  87  88  89  90 
+##  20  15  20   4   6   6   5   3   4   3   1   1   3
+\end{verbatim}
+
+\hypertarget{para-recodificar-una-variable}{%
+\section{Para recodificar una
+variable}\label{para-recodificar-una-variable}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Podemos usar corchetes}
+
+\NormalTok{IIF2023}\SpecialCharTok{$}\NormalTok{EDAD[IIF2023}\SpecialCharTok{$}\NormalTok{C02 }\SpecialCharTok{\textless{}} \DecValTok{25}\NormalTok{] }\OtherTok{\textless{}{-}} \DecValTok{1}
+\NormalTok{IIF2023}\SpecialCharTok{$}\NormalTok{EDAD[IIF2023}\SpecialCharTok{$}\NormalTok{C02 }\SpecialCharTok{\textgreater{}} \DecValTok{24} \SpecialCharTok{\&}\NormalTok{ IIF2023}\SpecialCharTok{$}\NormalTok{C02 }\SpecialCharTok{\textless{}} \DecValTok{35}\NormalTok{] }\OtherTok{\textless{}{-}} \DecValTok{2}
+\NormalTok{IIF2023}\SpecialCharTok{$}\NormalTok{EDAD[IIF2023}\SpecialCharTok{$}\NormalTok{C02 }\SpecialCharTok{\textgreater{}} \DecValTok{34} \SpecialCharTok{\&}\NormalTok{ IIF2023}\SpecialCharTok{$}\NormalTok{C02 }\SpecialCharTok{\textless{}} \DecValTok{45}\NormalTok{] }\OtherTok{\textless{}{-}} \DecValTok{3}
+\NormalTok{IIF2023}\SpecialCharTok{$}\NormalTok{EDAD[IIF2023}\SpecialCharTok{$}\NormalTok{C02 }\SpecialCharTok{\textgreater{}} \DecValTok{44} \SpecialCharTok{\&}\NormalTok{ IIF2023}\SpecialCharTok{$}\NormalTok{C02 }\SpecialCharTok{\textless{}} \DecValTok{55}\NormalTok{] }\OtherTok{\textless{}{-}} \DecValTok{4}
+\NormalTok{IIF2023}\SpecialCharTok{$}\NormalTok{EDAD[IIF2023}\SpecialCharTok{$}\NormalTok{C02 }\SpecialCharTok{\textgreater{}} \DecValTok{54}\NormalTok{] }\OtherTok{\textless{}{-}} \DecValTok{5}
+
+\NormalTok{IIF2023}\SpecialCharTok{$}\NormalTok{EDAD2 }\OtherTok{\textless{}{-}} \FunctionTok{factor}\NormalTok{(IIF2023}\SpecialCharTok{$}\NormalTok{EDAD, }\AttributeTok{labels =} \FunctionTok{c}\NormalTok{(}\StringTok{"De 18 a 24"}\NormalTok{, }\StringTok{"25 a 34"}\NormalTok{,}
+                                               \StringTok{"35 a 44"}\NormalTok{, }\StringTok{"45 a 54"}\NormalTok{,}
+                                               \StringTok{"55 a más"}\NormalTok{))}
+
+\FunctionTok{summary}\NormalTok{(IIF2023}\SpecialCharTok{$}\NormalTok{EDAD2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## De 18 a 24    25 a 34    35 a 44    45 a 54   55 a más 
+##       2246       3345       2965       2373       2514
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Podemos usar el comando "recode" del paquete "car"}
+
+\FunctionTok{library}\NormalTok{(car)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Loading required package: carData
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{IIF2023}\SpecialCharTok{$}\NormalTok{EDAD3 }\OtherTok{\textless{}{-}} \FunctionTok{recode}\NormalTok{(IIF2023}\SpecialCharTok{$}\NormalTok{C02, }\StringTok{"lo:20 = 1; 21:34 = 2; }
+\StringTok{                          35:44 = 3; 45:54 = 4; 55:hi = 5"}\NormalTok{)}
+
+\FunctionTok{table}\NormalTok{(IIF2023}\SpecialCharTok{$}\NormalTok{EDAD3)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##    1    2    3    4    5 
+## 1061 4530 2965 2373 2514
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Podemos recodificar creando vectores numéricos temporales}
+
+\NormalTok{IIF2023}\SpecialCharTok{$}\NormalTok{dominio.n }\OtherTok{\textless{}{-}} \FunctionTok{as.numeric}\NormalTok{(IIF2023}\SpecialCharTok{$}\NormalTok{PA)}
+
+\FunctionTok{table}\NormalTok{(IIF2023}\SpecialCharTok{$}\NormalTok{PA)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##            Lima        Amazonas          Áncash        Apurímac        Arequipa 
+##            1384             101             200             101             231 
+##        Ayacucho       Cajamarca           Cusco         Huánuco             Ica 
+##             101             211             210             111             131 
+##           Junín     La Libertad      Lambayeque          Loreto        Moquegua 
+##             201             281             201             139             102 
+##           Pasco           Piura            Puno      San Martin           Tacna 
+##             101             261             201             121             100 
+##          Tumbes         Ucayali   Madre de Dios    Huancavelica Lima provincias 
+##             102             101             100             100             130
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{table}\NormalTok{(IIF2023}\SpecialCharTok{$}\NormalTok{dominio.n)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##    1    2    3    4    5    6    7    8    9   10   11   12   13   14   15   16 
+## 1384  101  200  101  231  101  211  210  111  131  201  281  201  139  102  101 
+##   17   18   19   20   21   22   23   24   25 
+##  261  201  121  100  102  101  100  100  130
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{IIF2023}\SpecialCharTok{$}\NormalTok{dominio}\FloatTok{.1}\NormalTok{[IIF2023}\SpecialCharTok{$}\NormalTok{dominio.n }\SpecialCharTok{==} \DecValTok{1}\NormalTok{] }\OtherTok{\textless{}{-}} \StringTok{"Costa"}
+\NormalTok{IIF2023}\SpecialCharTok{$}\NormalTok{dominio}\FloatTok{.1}\NormalTok{[IIF2023}\SpecialCharTok{$}\NormalTok{dominio.n }\SpecialCharTok{==} \DecValTok{21}\NormalTok{] }\OtherTok{\textless{}{-}} \StringTok{"Costa"}
+\NormalTok{IIF2023}\SpecialCharTok{$}\NormalTok{dominio}\FloatTok{.1}\NormalTok{[IIF2023}\SpecialCharTok{$}\NormalTok{dominio.n }\SpecialCharTok{==} \DecValTok{12}\NormalTok{] }\OtherTok{\textless{}{-}} \StringTok{"Costa"}
+\NormalTok{IIF2023}\SpecialCharTok{$}\NormalTok{dominio}\FloatTok{.1}\NormalTok{[IIF2023}\SpecialCharTok{$}\NormalTok{dominio.n }\SpecialCharTok{==} \DecValTok{17}\NormalTok{] }\OtherTok{\textless{}{-}} \StringTok{"Costa"}
+\NormalTok{IIF2023}\SpecialCharTok{$}\NormalTok{dominio}\FloatTok{.1}\NormalTok{[IIF2023}\SpecialCharTok{$}\NormalTok{dominio.n }\SpecialCharTok{==} \DecValTok{3}\NormalTok{] }\OtherTok{\textless{}{-}} \StringTok{"Costa"}
+\NormalTok{IIF2023}\SpecialCharTok{$}\NormalTok{dominio}\FloatTok{.1}\NormalTok{[IIF2023}\SpecialCharTok{$}\NormalTok{dominio.n }\SpecialCharTok{==} \DecValTok{13}\NormalTok{] }\OtherTok{\textless{}{-}} \StringTok{"Costa"}
+\NormalTok{IIF2023}\SpecialCharTok{$}\NormalTok{dominio}\FloatTok{.1}\NormalTok{[IIF2023}\SpecialCharTok{$}\NormalTok{dominio.n }\SpecialCharTok{==} \DecValTok{5}\NormalTok{] }\OtherTok{\textless{}{-}} \StringTok{"Costa"}
+\NormalTok{IIF2023}\SpecialCharTok{$}\NormalTok{dominio}\FloatTok{.1}\NormalTok{[IIF2023}\SpecialCharTok{$}\NormalTok{dominio.n }\SpecialCharTok{==} \DecValTok{10}\NormalTok{] }\OtherTok{\textless{}{-}} \StringTok{"Costa"}
+\NormalTok{IIF2023}\SpecialCharTok{$}\NormalTok{dominio}\FloatTok{.1}\NormalTok{[IIF2023}\SpecialCharTok{$}\NormalTok{dominio.n }\SpecialCharTok{==} \DecValTok{15}\NormalTok{] }\OtherTok{\textless{}{-}} \StringTok{"Costa"}
+\NormalTok{IIF2023}\SpecialCharTok{$}\NormalTok{dominio}\FloatTok{.1}\NormalTok{[IIF2023}\SpecialCharTok{$}\NormalTok{dominio.n }\SpecialCharTok{==} \DecValTok{20}\NormalTok{] }\OtherTok{\textless{}{-}} \StringTok{"Costa"}
+
+\FunctionTok{table}\NormalTok{(IIF2023}\SpecialCharTok{$}\NormalTok{dominio}\FloatTok{.1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Costa 
+##  2993
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{IIF2023}\SpecialCharTok{$}\NormalTok{dominio}\FloatTok{.1}\NormalTok{[IIF2023}\SpecialCharTok{$}\NormalTok{dominio.n }\SpecialCharTok{==} \DecValTok{4}\NormalTok{] }\OtherTok{\textless{}{-}} \StringTok{"Sierra"}
+\NormalTok{IIF2023}\SpecialCharTok{$}\NormalTok{dominio}\FloatTok{.1}\NormalTok{[IIF2023}\SpecialCharTok{$}\NormalTok{dominio.n }\SpecialCharTok{==} \DecValTok{6}\NormalTok{] }\OtherTok{\textless{}{-}} \StringTok{"Sierra"}
+\NormalTok{IIF2023}\SpecialCharTok{$}\NormalTok{dominio}\FloatTok{.1}\NormalTok{[IIF2023}\SpecialCharTok{$}\NormalTok{dominio.n }\SpecialCharTok{==} \DecValTok{7}\NormalTok{] }\OtherTok{\textless{}{-}} \StringTok{"Sierra"}
+\NormalTok{IIF2023}\SpecialCharTok{$}\NormalTok{dominio}\FloatTok{.1}\NormalTok{[IIF2023}\SpecialCharTok{$}\NormalTok{dominio.n }\SpecialCharTok{==} \DecValTok{8}\NormalTok{] }\OtherTok{\textless{}{-}} \StringTok{"Sierra"}
+\NormalTok{IIF2023}\SpecialCharTok{$}\NormalTok{dominio}\FloatTok{.1}\NormalTok{[IIF2023}\SpecialCharTok{$}\NormalTok{dominio.n }\SpecialCharTok{==} \DecValTok{9}\NormalTok{] }\OtherTok{\textless{}{-}} \StringTok{"Sierra"}
+\NormalTok{IIF2023}\SpecialCharTok{$}\NormalTok{dominio}\FloatTok{.1}\NormalTok{[IIF2023}\SpecialCharTok{$}\NormalTok{dominio.n }\SpecialCharTok{==} \DecValTok{11}\NormalTok{] }\OtherTok{\textless{}{-}} \StringTok{"Sierra"}
+\NormalTok{IIF2023}\SpecialCharTok{$}\NormalTok{dominio}\FloatTok{.1}\NormalTok{[IIF2023}\SpecialCharTok{$}\NormalTok{dominio.n }\SpecialCharTok{==} \DecValTok{18}\NormalTok{] }\OtherTok{\textless{}{-}} \StringTok{"Sierra"}
+\NormalTok{IIF2023}\SpecialCharTok{$}\NormalTok{dominio}\FloatTok{.1}\NormalTok{[IIF2023}\SpecialCharTok{$}\NormalTok{dominio.n }\SpecialCharTok{==} \DecValTok{24}\NormalTok{] }\OtherTok{\textless{}{-}} \StringTok{"Sierra"}
+
+\FunctionTok{table}\NormalTok{(IIF2023}\SpecialCharTok{$}\NormalTok{dominio}\FloatTok{.1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Costa Sierra 
+##   2993   1236
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{IIF2023}\SpecialCharTok{$}\NormalTok{dominio}\FloatTok{.1}\NormalTok{[IIF2023}\SpecialCharTok{$}\NormalTok{dominio.n }\SpecialCharTok{==} \DecValTok{2}\NormalTok{] }\OtherTok{\textless{}{-}} \StringTok{"Selva"}
+\NormalTok{IIF2023}\SpecialCharTok{$}\NormalTok{dominio}\FloatTok{.1}\NormalTok{[IIF2023}\SpecialCharTok{$}\NormalTok{dominio.n }\SpecialCharTok{==} \DecValTok{14}\NormalTok{] }\OtherTok{\textless{}{-}} \StringTok{"Selva"}
+\NormalTok{IIF2023}\SpecialCharTok{$}\NormalTok{dominio}\FloatTok{.1}\NormalTok{[IIF2023}\SpecialCharTok{$}\NormalTok{dominio.n }\SpecialCharTok{==} \DecValTok{9}\NormalTok{] }\OtherTok{\textless{}{-}} \StringTok{"Selva"}
+\NormalTok{IIF2023}\SpecialCharTok{$}\NormalTok{dominio}\FloatTok{.1}\NormalTok{[IIF2023}\SpecialCharTok{$}\NormalTok{dominio.n }\SpecialCharTok{==} \DecValTok{19}\NormalTok{] }\OtherTok{\textless{}{-}} \StringTok{"Selva"}
+\NormalTok{IIF2023}\SpecialCharTok{$}\NormalTok{dominio}\FloatTok{.1}\NormalTok{[IIF2023}\SpecialCharTok{$}\NormalTok{dominio.n }\SpecialCharTok{==} \DecValTok{22}\NormalTok{] }\OtherTok{\textless{}{-}} \StringTok{"Selva"}
+\NormalTok{IIF2023}\SpecialCharTok{$}\NormalTok{dominio}\FloatTok{.1}\NormalTok{[IIF2023}\SpecialCharTok{$}\NormalTok{dominio.n }\SpecialCharTok{==} \DecValTok{23}\NormalTok{] }\OtherTok{\textless{}{-}} \StringTok{"Selva"}
+
+\FunctionTok{table}\NormalTok{(IIF2023}\SpecialCharTok{$}\NormalTok{dominio}\FloatTok{.1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Costa  Selva Sierra 
+##   2993    673   1125
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{IIF2023}\SpecialCharTok{$}\NormalTok{dominio}\FloatTok{.2} \OtherTok{\textless{}{-}} \FunctionTok{factor}\NormalTok{(IIF2023}\SpecialCharTok{$}\NormalTok{dominio}\FloatTok{.1}\NormalTok{, }
+                             \AttributeTok{labels =} \FunctionTok{c}\NormalTok{(}\StringTok{"Costa"}\NormalTok{, }\StringTok{"Selva"}\NormalTok{, }\StringTok{"Sierra"}\NormalTok{))}
+
+\FunctionTok{table}\NormalTok{(IIF2023}\SpecialCharTok{$}\NormalTok{dominio}\FloatTok{.2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Costa  Selva Sierra 
+##   2993    673   1125
+\end{verbatim}
+
+\hypertarget{identificar-contabilizar-y-formatear-valores-perdidos-de-acuerdo-a-nuestras-necesidades}{%
+\section{Identificar, contabilizar y formatear valores perdidos de
+acuerdo a nuestras
+necesidades}\label{identificar-contabilizar-y-formatear-valores-perdidos-de-acuerdo-a-nuestras-necesidades}}
+
+Primero, usemos ``table'' y ``exclude = NULL'' para comprender las
+dimensiones de los valores perdidos en nuestras variables
+
+Segundo, recodifiquemos
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{table}\NormalTok{(IIF2023}\SpecialCharTok{$}\NormalTok{P09\_2\_Rp02, }\AttributeTok{exclude =} \ConstantTok{NULL}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##    No   Yes  <NA> 
+##  1134    43 12266
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{IIF2023}\SpecialCharTok{$}\NormalTok{FINANCIERA }\OtherTok{\textless{}{-}}\NormalTok{ car}\SpecialCharTok{::}\FunctionTok{recode}\NormalTok{(IIF2023}\SpecialCharTok{$}\NormalTok{P09\_2\_Rp02, }\StringTok{"1=1; 0=0; NA=0"}\NormalTok{)}
+\NormalTok{IIF2023}\SpecialCharTok{$}\NormalTok{FINANCIERA }\OtherTok{\textless{}{-}}\NormalTok{ car}\SpecialCharTok{::}\FunctionTok{recode}\NormalTok{(IIF2023}\SpecialCharTok{$}\NormalTok{P09\_2\_Rp02, }\StringTok{"0=0; 1=1"}\NormalTok{)}
+
+\DocumentationTok{\#\# Tabla en porcentajes:}
+
+\FunctionTok{prop.table}\NormalTok{(}\FunctionTok{table}\NormalTok{(IIF2023}\SpecialCharTok{$}\NormalTok{FINANCIERA))}\SpecialCharTok{*}\DecValTok{100}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##        No       Yes 
+## 96.346644  3.653356
+\end{verbatim}
+
+\hypertarget{estructuremos-la-base-de-datos-como-requerimos}{%
+\subparagraph{Estructuremos la base de datos como
+requerimos}\label{estructuremos-la-base-de-datos-como-requerimos}}
+
+Seleccionemos y creemos una base de datos solo con las variables que
+necesitamos. Esto aligerará los procedimientos en R. \# Una primera
+forma de darle forma a los datos según nuestra pregunta de investigación
+es creando tablas cruzadas con las variables
+
+Identifiquemos qué retos tiene cada una de sus preguntas y las variables
+seleccionadas. Por ejemplo, en algunos casos requerirán recodificar
+antes de elaborar la tabla, en otros convertir factores en vectores o
+viceversa.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mis.vars }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"P0601"}\NormalTok{, }\StringTok{"dominio.2"}\NormalTok{, }\StringTok{"C01"}\NormalTok{, }\StringTok{"C02"}\NormalTok{,}\StringTok{"P0602"}\NormalTok{, }\AttributeTok{data =}\NormalTok{ IIF2023)}
+
+
+\CommentTok{\# Cargamos los paquetes necesarios}
+
+\FunctionTok{library}\NormalTok{(reshape2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'reshape2' was built under R version 4.3.3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(dplyr)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Attaching package: 'dplyr'
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:car':
+## 
+##     recode
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Para dos variables categóricas}
+
+\NormalTok{tabla\_cruzadaA }\OtherTok{\textless{}{-}} \FunctionTok{xtabs}\NormalTok{(}\SpecialCharTok{\textasciitilde{}}\NormalTok{ P0601 }\SpecialCharTok{+}\NormalTok{ dominio}\FloatTok{.2}\NormalTok{, }\AttributeTok{data =}\NormalTok{ IIF2023)}
+\FunctionTok{View}\NormalTok{(tabla\_cruzadaA)}
+
+
+\CommentTok{\# Para una variable numérica y un factor}
+
+\NormalTok{tabla\_cruzadaB}\OtherTok{\textless{}{-}} \FunctionTok{xtabs}\NormalTok{(}\SpecialCharTok{\textasciitilde{}}\NormalTok{ C02 }\SpecialCharTok{+}\NormalTok{ dominio}\FloatTok{.2}\NormalTok{, }\AttributeTok{data =}\NormalTok{ IIF2023)}
+\FunctionTok{View}\NormalTok{(tabla\_cruzadaB)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{ejercicio}{%
+\section{EJERCICIO:}\label{ejercicio}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Identificar cuáles de sus variables cuentan con valores perdidos y
+  valores atípicos
+\item
+  Proponer qué tipo de tablas podrían responder a su pregunta de
+  investigación
+\item
+  Formular sintaxis que permitan recodificar las variables o crear
+  nuevas para poder elaborar dichas tablas
+\end{enumerate}
+
+\end{document}

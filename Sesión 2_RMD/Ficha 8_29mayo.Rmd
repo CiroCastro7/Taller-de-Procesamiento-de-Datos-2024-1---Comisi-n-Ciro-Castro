@@ -1,0 +1,273 @@
+---
+title: "Ficha práctica 8"
+output: pdf_document
+date: "2024-05-27"
+---
+
+En esta sesión trabajaremos en condicionar la base de datos para responder a nuestras preguntas de investigación. Primero, repasaremos como cargar y explorar base de datos. Luego, identificaremos qué tipo de variables están implicadas en nuestras preguntas y cómo transformarlas. Posteriormente, identificaremos valores atípicos en nuestras variables elegidas. Finalmente, identificaremos valores perdidos. 
+
+### IMPORTAR SPSS a R
+
+```{r}
+
+library(foreign) 
+IIF2023 <- read.spss("IIF 2023.sav") 
+IIF2023 <- data.frame(IIF2023)
+
+library(rio)
+
+IIF2023= import('IIF 2023.sav')
+
+View(IIF2023)
+
+IIF2023 <- data.frame(IIF2023)
+View(IIF2023)
+
+
+
+```
+
+### EXPLORAR BASE DE DATOS
+
+Para explorar base de datos podemos usar los comandos head y/o table. A continuación ejemplos de sintaxis usando algunas variables que seleccionaron en sus preguntas de investigación.
+
+```{r}
+
+head(IIF2023)
+head(IIF2023$P09_1_Rp01)
+head(IIF2023$P22)
+head(IIF2023$P0602)
+head(IIF2023$P0603)
+head(IIF2023$P0606)
+head(IIF2023$P1001)
+head(IIF2023$P11_1_Rp01)
+
+table(IIF2023) # Nótese que table no se puede usar para una base completa, solo para variables específicas.
+table(IIF2023$P09_1_Rp01)
+table(IIF2023$P22)
+table(IIF2023$P0602)
+table(IIF2023$P0603)
+table(IIF2023$P0606)
+table(IIF2023$P1001)
+table(IIF2023$P11_1_Rp01)
+
+```
+
+### Identificar tipos de variables
+
+Para iniciar el procesamiento de datos cuantitativos requerimos determinar qué tipos de variables tenemos que procesar de acuerdo a nuestra pregunta de investigación. Podemos usar el comando str o class para ello.
+
+Es cierto que el significado estadístico y/o sociológico de algunas variables nos puede llevar a clasificarlas como categóricas o numéricas. Sin embargo, es necesario no solo identificar ello sino también cómo han sido almacenadas en la base de datos inicial (como vectores o como factores). Esto luego nos permitirá elaborar un plan de cómo gestionarlas posteriormente y cumplir con los objetivos de investigación eficazmente. Por ejemplo, en el plan podemos incluir qué variables necesitarán ser recodificadas y cómo, qué valores perdidos y atípicos se excluirán y cuáles no, así como cómo todo esto influirá en la interpretación de tablas, grádicos y cálculos de estadísticos.  
+
+```{r}
+ 
+str(IIF2023) 
+str(IIF2023$P09_1_Rp01)
+str(IIF2023$P22)
+str(IIF2023$P0602)
+str(IIF2023$P0603)
+str(IIF2023$P0606)
+str(IIF2023$P1001)
+str(IIF2023$P11_1_Rp01)
+
+class(IIF2023$P09_1_Rp01)
+class(IIF2023$C02)
+
+```
+
+# Transformar variables
+
+```{r}
+
+#Podemos usar corchetes para transformar una variable numérica o vector a un factor usando la siguiente sintaxis
+
+IIF2023$EDAD[IIF2023$C02 < 25] <- 1
+IIF2023$EDAD[IIF2023$C02 > 24 & IIF2023$C02 < 35] <- 2
+IIF2023$EDAD[IIF2023$C02 > 34 & IIF2023$C02 < 45] <- 3
+IIF2023$EDAD[IIF2023$C02 > 44 & IIF2023$C02 < 55] <- 4
+IIF2023$EDAD[IIF2023$C02 > 54] <- 5
+
+IIF2023$EDAD2 <- factor(IIF2023$EDAD, labels = c("De 18 a 24", "25 a 34",
+                                               "35 a 44", "45 a 54",
+                                               "55 a más"))
+
+summary(IIF2023$EDAD2)
+
+# De forma similar podemos usar el comando "recode" del paquete "car"
+
+library(car)
+
+IIF2023$EDAD3 <- recode(IIF2023$C02, "lo:20 = 1; 21:34 = 2; 
+                          35:44 = 3; 45:54 = 4; 55:hi = 5")
+
+table(IIF2023$EDAD3)
+
+#Podemos recodificar creando vectores numéricos temporales, con el propósito de transformar los levels de un factor
+
+IIF2023$dominio.n <- as.numeric(IIF2023$PA)
+
+table(IIF2023$PA)
+table(IIF2023$dominio.n)
+
+IIF2023$dominio.1[IIF2023$dominio.n == 1] <- "Costa"
+IIF2023$dominio.1[IIF2023$dominio.n == 21] <- "Costa"
+IIF2023$dominio.1[IIF2023$dominio.n == 12] <- "Costa"
+IIF2023$dominio.1[IIF2023$dominio.n == 17] <- "Costa"
+IIF2023$dominio.1[IIF2023$dominio.n == 3] <- "Costa"
+IIF2023$dominio.1[IIF2023$dominio.n == 13] <- "Costa"
+IIF2023$dominio.1[IIF2023$dominio.n == 5] <- "Costa"
+IIF2023$dominio.1[IIF2023$dominio.n == 10] <- "Costa"
+IIF2023$dominio.1[IIF2023$dominio.n == 15] <- "Costa"
+IIF2023$dominio.1[IIF2023$dominio.n == 20] <- "Costa"
+
+table(IIF2023$dominio.1)
+
+
+IIF2023$dominio.1[IIF2023$dominio.n == 4] <- "Sierra"
+IIF2023$dominio.1[IIF2023$dominio.n == 6] <- "Sierra"
+IIF2023$dominio.1[IIF2023$dominio.n == 7] <- "Sierra"
+IIF2023$dominio.1[IIF2023$dominio.n == 8] <- "Sierra"
+IIF2023$dominio.1[IIF2023$dominio.n == 9] <- "Sierra"
+IIF2023$dominio.1[IIF2023$dominio.n == 11] <- "Sierra"
+IIF2023$dominio.1[IIF2023$dominio.n == 18] <- "Sierra"
+IIF2023$dominio.1[IIF2023$dominio.n == 24] <- "Sierra"
+
+table(IIF2023$dominio.1)
+
+IIF2023$dominio.1[IIF2023$dominio.n == 2] <- "Selva"
+IIF2023$dominio.1[IIF2023$dominio.n == 14] <- "Selva"
+IIF2023$dominio.1[IIF2023$dominio.n == 9] <- "Selva"
+IIF2023$dominio.1[IIF2023$dominio.n == 19] <- "Selva"
+IIF2023$dominio.1[IIF2023$dominio.n == 22] <- "Selva"
+IIF2023$dominio.1[IIF2023$dominio.n == 23] <- "Selva"
+
+table(IIF2023$dominio.1)
+
+IIF2023$dominio.2 <- factor(IIF2023$dominio.1, 
+                             labels = c("Costa", "Selva", "Sierra"))
+
+table(IIF2023$dominio.2)
+
+
+```
+
+### Identificación de valores atípicos
+
+Para el caso de variables numéricas, se puede identificar valores atípicos usando métodos gráficos creando histogramas o diagramas de cajas. Para entrar al detalle de cuáles son los valores atípicos en cuestión se puede usar el comando boxplot.stats 
+
+```{r}
+
+hist(IIF2023$C02)
+
+hist(IIF2023$C02, breaks=100)
+
+hist(IIF2023$C02)
+
+hist(IIF2023$P09_1_Rp01_n, breaks=3) # Nótese que los histogramas solo sirven para variables numéricas
+
+hist(IIF2023$PTJE3, breaks=100)
+
+boxplot(IIF2023$C02)
+
+boxplot.stats(IIF2023$C02) 
+
+boxplot.stats(IIF2023$PTJE3) 
+
+```
+### Identificar valores faltantes 
+
+Un método gráfico para hacer esto es creando "heatmaps" o "mapas de calor". Otra forma no gráfica es usar el comando is.na
+
+```{r}
+
+### Método gráfico
+
+# Cargar la biblioteca
+library(heatmap3)
+
+data0 <- data.frame(IIF2023$P23_1_Rp, IIF2023$P23_2_Rp, IIF2023$P23_3_Rp)
+
+data0$NUM1 <- as.numeric(data0$IIF2023.P23_1_Rp)
+data0$NUM2 <- as.numeric(data0$IIF2023.P23_2_Rp)
+data0$NUM3 <- as.numeric(data0$IIF2023.P23_3_Rp)
+
+data0[data0 == 6] <- NA
+
+# Convertir la matriz lógica a una matriz numérica
+na_matrix <- matrix(as.numeric(is.na(data0)), nrow = nrow(data0))
+
+# Crear un mapa de calor
+heatmap(na_matrix, Rowv = NA, Colv = NA, col = c("black", "white"), scale="none")
+
+
+
+### Método no gráfico
+
+is.na(IIF2023$P11_1_Rp01)
+num_na <- sum(is.na(IIF2023$P11_1_Rp01))
+print(num_na)
+
+```
+# Identificar, contabilizar y formatear valores perdidos de acuerdo a nuestras necesidades
+
+Primero, usemos "table" y "exclude = NULL" para comprender las dimensiones de los valores perdidos en nuestras variables
+
+Segundo, recodifiquemos
+
+```{r}
+table(IIF2023$P09_2_Rp02, exclude = NULL)
+
+IIF2023$FINANCIERA <- car::recode(IIF2023$P09_2_Rp02, "1=1; 0=0; NA=0")
+IIF2023$FINANCIERA <- car::recode(IIF2023$P09_2_Rp02, "0=0; 1=1")
+
+## Tabla en porcentajes:
+
+prop.table(table(IIF2023$FINANCIERA))*100
+
+```
+
+##### Estructuremos la base de datos como requerimos
+
+Seleccionemos y creemos una base de datos solo con las variables que necesitamos. Esto aligerará los procedimientos en R. Una primera forma de darle forma a los datos según nuestra pregunta de investigación es creando tablas cruzadas con las variables
+
+Identifiquemos qué retos tiene cada una de sus preguntas y las variables seleccionadas. Por ejemplo, en algunos casos requerirán recodificar antes de elaborar la tabla, en otros convertir factores en vectores o viceversa.
+
+```{r}
+
+mis.vars <- c("P0601", "dominio.2", "C01", "C02","P0602", data = IIF2023)
+
+
+# Cargamos los paquetes necesarios
+
+library(reshape2)
+library(dplyr)
+
+# Para dos variables categóricas
+
+tabla_cruzadaA <- xtabs(~ P0601 + dominio.2, data = IIF2023)
+
+print(tabla_cruzadaA)
+
+# Para una variable numérica y un factor
+
+tabla_cruzadaB<- xtabs(~ C02 + dominio.2, data = IIF2023)
+
+print(tabla_cruzadaB)
+```
+
+# EJERCICIO:
+
+Objetivo: En grupos, analicemos las variables de la pregunta de investigación para cada grupo. Determinemos si es que las variables escogidas son pertinentes, se agregarán otras o será necesario cambiar de variables por falta de casos.
+
+1. Hacer una lista clara de todas las variables o preguntas que identifiquen del cuestionario y base que les gustaría incluir en la limpieza de base de datos
+
+  1.1 Especificar una división del trabajo por integrante, quién va a hacerse cargo de explorar qué pregunta o generar qué tabla o gráfico.
+  1.2 Usando métodos gráficos y no gráficos, cada miembro del grupo debe identificar cuáles de sus variables cuentan con valores perdidos y/o valores atípicos
+  
+2. Grupalmente conversar y validar si es que hay suficiente número de casos (no NA) en sus variables escogidas 
+
+3. Planificar qué procedimiendo les permitiría recodificar las variables o crear nuevas para poder elaborar dichas tablas. Por ahora solo planificar, la ejecución será en la próxima clase.
+
+4. Reflexionar si necesitan ajustar sus preguntas de investigación según lo obtenido en 1,2,3
+
+  4.1  Grupalmente, compartan sus impresiones y discutan en grupo si hay data suficiente para trabajar su pregunta o si desean reformular. Se debe tomar una decisión y tener una pregunta viable lista al final de esta sesión.
